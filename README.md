@@ -1,7 +1,10 @@
 Questions:
 1. What is your strategy for handling large amounts of data returned by an API? How does it
 impact the user experience?
-2. Say you’ve received data from an API, and you want to supply a sorting option to it within
-your typescript or JavaScript. Give an example of how you might go about doing this.
+Answer: On my experience, I will reduce the size pagination by setting limits on database returned data or sql queries if possible. If incase the data being returned is really large, I'll store it in a local storage and cache the data for future usage. That way, I won't have to keep calling api endpoints if they are already in cache. Might as well made some chunks from the returned large data in a form service variables which can be used for specific components.
+2. Say you’ve received data from an API, and you want to supply a sorting option to it within your typescript or JavaScript. Give an example of how you might go about doing this.
+Answer: Upon receiving data from an API, first is store it in a local storage if it's quite huge or maybe in a service variable if necessary for some components to access. Then from there, we must check first if the returned data is already being sorted from the api for lesser checking time. If it's not, we can then utilize the free Javascript utility libraries like the lodash, fast-sort, etc. and these libraries libraries are also equipped with a lot of sorting functions/features based on our needs.
 3. How would you attach an event to a component?
+Answer: With the use of Angular's event binding, you can attach an event to a component (may it be a mouse clicks, movements, keystrokes, keyboard inputs and touches.). To bind it, we can use Angular's event binding syntax which consists of a target event name within parentheses to the left of an equal sign, and a quoted template statement to the right.
 4. Can you cancel an http request? If yes, how?
+Answer: Yes because an http request is an observable. The best way to cancel it is to unsubscribe it.
