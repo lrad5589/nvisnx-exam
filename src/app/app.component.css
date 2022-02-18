@@ -1,0 +1,10 @@
+.center-text{
+    text-align: center;
+}
+.center-button{
+    position: fixed;
+    left: 47%;
+    background-color: black;
+    color: white;
+    width: 100px;
+}

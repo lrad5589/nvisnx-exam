@@ -1,0 +1,40 @@
+
+<app-header></app-header>
+<ng-container *ngIf="animals; else noData">
+
+    <div style="position: relative; left: 47%">
+      <label>Pick a color</label>
+      <ngx-colors ngx-colors-trigger [ngModel]="color" (ngModelChange)="onChangeColor($event)" style="position: relative; left:1%"></ngx-colors>
+    </div>
+  <br/>
+  
+    <select class="center-button" [ngModel]="selectedChart" (ngModelChange)="onChange($event)" #chart name="chart" required >
+             <option value="" selected disabled >Select Chart Type</option>
+             <option value="pie">Pie</option>
+             <option value="donut">Donut</option>
+    </select>
+
+<br/>
+<br/>
+
+<ng-container *ngIf="selectedChart == 'pie';">
+  <app-pie-chart></app-pie-chart>
+</ng-container>
+<ng-container *ngIf="selectedChart == 'donut' || selectedChart == ''">  
+  <app-donut-chart></app-donut-chart>
+</ng-container>
+<ng-container *ngIf="selectedChart == 'loading'">  
+  <p style="text-align: center;">Loading...</p>
+</ng-container>
+
+<br/>
+<br/>
+</ng-container>
+<ng-template #noData>
+  <h4 class="center-text">No Data to Display.</h4>
+</ng-template>
+
+<button class="center-button" style="position: fixed; bottom: 80px" (click)="getData()">Get Data</button>
+<br/>
+<br/>
+<app-footer ></app-footer>
